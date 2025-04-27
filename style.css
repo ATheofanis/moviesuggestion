@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #0d1117; /* GitHub dark background */
+    background-color: #0d1117;
     color: #c9d1d9;
     text-align: center;
     margin: 0;
@@ -13,31 +13,24 @@ h1 {
 
 .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-start;
     width: 90%;
     margin: auto;
 }
 
-#movie-section, #favorites-section {
-    width: 45%;
+#movie-section {
+    width: 80%;
 }
 
-#favorites-section {
-    background-color: #161b22;
-    padding: 8px;
-    border-radius: 4px;
-}
-
-#favorites-section h2 {
-    text-align: center;
-    color: #58a6ff;
+#top-buttons {
+    margin-bottom: 15px;
 }
 
 button {
-    margin: 8px;
+    margin: 6px;
     padding: 6px 14px;
-    background-color: #7d3cff; /* New PURPLE color */
+    background-color: #7d3cff;
     color: white;
     border: none;
     border-radius: 8px;
@@ -47,7 +40,18 @@ button {
 }
 
 button:hover {
-    background-color: #a56eff; /* lighter purple on hover */
+    background-color: #a56eff;
+}
+
+#searchBar {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 8px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #444c56;
+    background-color: #161b22;
+    color: white;
 }
 
 #movieList {
@@ -90,7 +94,6 @@ li {
     animation: fadeIn 0.5s;
 }
 
-/* Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
