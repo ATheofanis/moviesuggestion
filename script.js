@@ -1,68 +1,49 @@
-// Movies array (like your struct array)
-let movies = [
-  { name: "Die Hard", rating: 8.2, genre: "Action", duration: 132 },
-  { name: "Forrest Gump", rating: 8.8, genre: "Drama", duration: 142 },
-  { name: "Superbad", rating: 7.6, genre: "Comedy", duration: 113 },
-  { name: "Mad Max: Fury Road", rating: 8.1, genre: "Action", duration: 120 },
-  { name: "The Godfather", rating: 9.2, genre: "Drama", duration: 175 },
-  { name: "The Hangover", rating: 7.7, genre: "Comedy", duration: 100 }
+const movies = [
+    { name: "Die Hard", rating: 8.2, genre: "Action", duration: 132 },
+    { name: "Forrest Gump", rating: 8.8, genre: "Drama", duration: 142 },
+    { name: "Superbad", rating: 7.6, genre: "Comedy", duration: 113 },
+    { name: "Mad Max: Fury Road", rating: 8.1, genre: "Action", duration: 120 },
+    { name: "The Godfather", rating: 9.2, genre: "Drama", duration: 175 },
+    { name: "The Hangover", rating: 7.7, genre: "Comedy", duration: 100 }
 ];
 
-let saved = []; // To save favorite movies
+const movieList = document.getElementById('movieList');
+const favoritesList = document.getElementById('favoritesList');
 
-// Show movies
-function displayMovies(list) {
-  let movieList = document.getElementById("movieList");
-  movieList.innerHTML = "";
-  list.forEach((movie, index) => {
-    movieList.innerHTML += `
-      <li>
-        ${movie.name} (${movie.rating}) - ${movie.genre}, ${movie.duration} min
-        <button onclick="saveMovie(${index})">Save ⭐</button>
-        <button onclick="removeMovie(${index})">Remove ❌</button>
-      </li>
-    `;
-  });
+function displayMovies(moviesToDisplay) {
+    movieList.innerHTML = '';
+
+    moviesToDisplay.forEach(movie => {
+        const card = document.createElement('div');
+        card.className = 'movie-card';
+
+        card.innerHTML = `
+            <h3>${movie.name}</h3>
+            <p>Rating: ${movie.rating}</p>
+            <p>Genre: ${movie.genre}</p>
+            <p>Duration: ${movie.duration} min</p>
+            <button onclick="addToFavorites('${movie.name}')">Add to Favorites</button>
+        `;
+
+        movieList.appendChild(card);
+    });
 }
 
-// Filter by rating and duration
-function filterMovies() {
-  let minRating = parseFloat(document.getElementById("minRating").value) || 0;
-  let maxDuration = parseInt(document.getElementById("maxDuration").value) || Infinity;
-
-  let filtered = movies.filter(m => m.rating >= minRating && m.duration <= maxDuration);
-  displayMovies(filtered);
+function showRandomMovie() {
+    const randomMovie = movies[Math.floor(Math.random() * movies.length)];
+    displayMovies([randomMovie]);
 }
 
-// Search by name
-function searchMovies() {
-  let search = document.getElementById("searchInput").value.toLowerCase();
-  let filtered = movies.filter(m => m.name.toLowerCase().includes(search));
-  displayMovies(filtered);
+function filterMovies(minRating) {
+    const filtered = movies.filter(movie => movie.rating >= minRating);
+    displayMovies(filtered);
 }
 
-// Save movie to favorites
-function saveMovie(index) {
-  saved.push(movies[index]);
-  updateSaved();
+function addToFavorites(movieName) {
+    const li = document.createElement('li');
+    li.textContent = movieName;
+    favoritesList.appendChild(li);
 }
 
-// Remove movie from available list
-function removeMovie(index) {
-  movies.splice(index, 1);
-  displayMovies(movies);
-}
-
-// Update saved list
-function updateSaved() {
-  let savedList = document.getElementById("savedMovies");
-  savedList.innerHTML = "";
-  saved.forEach(movie => {
-    savedList.innerHTML += `
-      <li>${movie.name} (${movie.rating})</li>
-    `;
-  });
-}
-
-// Initial display
+// Show all movies when page loads
 displayMovies(movies);
