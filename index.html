@@ -8,25 +8,23 @@
 <body>
     <h1>Movie Recommendation</h1>
 
+    <div id="top-buttons">
+        <button onclick="showRandomMovie()">Random Movie</button>
+        <button onclick="filterMovies(8)">Rating 8+</button>
+        <button onclick="filterMovies(7)">Rating 7+</button>
+        <button onclick="filterMovies(6)">Rating 6+</button>
+        <button onclick="showGenres()">Genres</button>
+        <button onclick="displayMovies(movies)">Show All Movies</button>
+        <button onclick="goToFavoritesPage()">Go to Favorites ❤️</button>
+    </div>
+
+    <input type="text" id="searchBar" onkeyup="searchMovies()" placeholder="Search for movies..." />
+
+    <div id="genreButtons" style="margin-top: 10px;"></div>
+
     <div class="container">
         <div id="movie-section">
-            <div id="buttons">
-                <button onclick="showRandomMovie()">Random Movie</button>
-                <button onclick="filterMovies(8)">Rating 8+</button>
-                <button onclick="filterMovies(7)">Rating 7+</button>
-                <button onclick="filterMovies(6)">Rating 6+</button>
-                <button onclick="showGenres()">Genres</button>
-                <button onclick="displayMovies(movies)">Show All Movies</button>
-            </div>
-
-            <div id="genreButtons" style="margin-top: 10px;"></div>
-
             <div id="movieList"></div>
-        </div>
-
-        <div id="favorites-section">
-            <h2>Favorites ❤️</h2>
-            <ul id="favoritesList"></ul>
         </div>
     </div>
 
