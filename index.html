@@ -1,36 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Movie Recommender</title>
-  <link rel="stylesheet" href="style.css"> <!-- (connects the CSS file) -->
+    <meta charset="UTF-8">
+    <title>Movie Recommendation App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🎬 Movie Recommender</h1>
+    <h1>Movie Recommendation</h1>
 
-  <div>
-    <input type="text" id="searchInput" placeholder="Search movie name...">
-    <button onclick="searchMovies()">Search</button>
-  </div>
+    <div class="container">
+        <div id="movie-section">
+            <div id="buttons">
+                <button onclick="showRandomMovie()">Random Movie</button>
+                <button onclick="filterMovies(8)">Rating 8+</button>
+                <button onclick="filterMovies(7)">Rating 7+</button>
+                <button onclick="filterMovies(6)">Rating 6+</button>
+            </div>
 
-  <div>
-    <label>Minimum Rating:</label>
-    <input type="number" id="minRating" min="0" max="10" step="0.1">
-    <label>Max Duration (min):</label>
-    <input type="number" id="maxDuration" min="0">
-    <button onclick="filterMovies()">Filter</button>
-  </div>
+            <div id="movieList"></div>
+        </div>
 
-  <h2>Available Movies</h2>
-  <ul id="movieList">
-    <!-- Movies will be shown here -->
-  </ul>
+        <div id="favorites-section">
+            <h2>Favorites ❤️</h2>
+            <ul id="favoritesList"></ul>
+        </div>
+    </div>
 
-  <h2>⭐ Saved Movies</h2>
-  <ul id="savedMovies">
-    <!-- Saved movies will be shown here -->
-  </ul>
-
-  <script src="script.js"></script> <!-- (connects the JS file) -->
+    <script src="script.js"></script>
 </body>
 </html>
