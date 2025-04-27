@@ -14,16 +14,39 @@ h1 {
 }
 
 button {
-    margin: 10px;
-    padding: 10px 20px;
+    margin: 8px;
+    padding: 6px 14px;
     background-color: #800080; /* purple */
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 button:hover {
     background-color: ##800080;
 }
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 80%;
+}
+
+#movie-section, #favorites-section {
+    width: 45%;
+}
+
+#favorites-section {
+    background-color: #161b22;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#favorites-section h2 {
+    text-align: center;
+    color: #58a6ff; /* Nice blue for section title */
+}
+
