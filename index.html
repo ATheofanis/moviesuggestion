@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Recommender</title>
+  <link rel="stylesheet" href="style.css"> <!-- (connects the CSS file) -->
+</head>
+<body>
+  <h1>🎬 Movie Recommender</h1>
+
+  <div>
+    <input type="text" id="searchInput" placeholder="Search movie name...">
+    <button onclick="searchMovies()">Search</button>
+  </div>
+
+  <div>
+    <label>Minimum Rating:</label>
+    <input type="number" id="minRating" min="0" max="10" step="0.1">
+    <label>Max Duration (min):</label>
+    <input type="number" id="maxDuration" min="0">
+    <button onclick="filterMovies()">Filter</button>
+  </div>
+
+  <h2>Available Movies</h2>
+  <ul id="movieList">
+    <!-- Movies will be shown here -->
+  </ul>
+
+  <h2>⭐ Saved Movies</h2>
+  <ul id="savedMovies">
+    <!-- Saved movies will be shown here -->
+  </ul>
+
+  <script src="script.js"></script> <!-- (connects the JS file) -->
+</body>
+</html>
