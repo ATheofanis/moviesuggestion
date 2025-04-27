@@ -37,7 +37,7 @@ h1 {
 button {
     margin: 8px;
     padding: 6px 14px;
-    background-color: #238636; /* nice green */
+    background-color: #7d3cff; /* New PURPLE color */
     color: white;
     border: none;
     border-radius: 8px;
@@ -47,7 +47,7 @@ button {
 }
 
 button:hover {
-    background-color: #2ea043;
+    background-color: #a56eff; /* lighter purple on hover */
 }
 
 #movieList {
